@@ -4,3 +4,8 @@ badger:
   name: Badger McBadger
   email: badger@mcbadger.com
   password_digest: <%= User.digest('password') %>
+
+ferret:
+  name: Ferret McFerret
+  email: ferret@mcferret.com
+  password_digest: <%= User.digest('password') %>
