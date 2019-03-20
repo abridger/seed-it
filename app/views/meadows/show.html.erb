@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <strong>Name:</strong>
+  <%= @meadow.name %>
+</h1>
+
+<p>
+  <strong>Description:</strong>
+  <%= @meadow.description %>
+</p>
+
+<%= link_to 'Edit', edit_meadow_path(@meadow) %> |
+<%= link_to 'Back', meadows_path %>

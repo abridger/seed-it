@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<div>
+  <div>
+      <span>Name</span>
+      <span>Email</span>
+  </div>
+
+  <div class="users">
+    <% @users.each do |user| %>
+      <div class="user">
+        <span><%= user.name %></span>
+        <span><%= user.email %></span>
+        <span><%= link_to 'Show', user %></span>
+        <span><%= link_to 'Edit', edit_user_path(user) %></span>
+        <span><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+      </tr>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'New User', new_user_path %>

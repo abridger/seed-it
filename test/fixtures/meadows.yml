@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+valid:
+  description: A meadow description
+  name: A meadow title
+
+invalid_title:
+  description: A meadow description
+  name:
+
+invalid_description:
+  description:
+  name: A meadow title

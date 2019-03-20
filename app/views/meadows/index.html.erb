@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Meadows</h1>
+
+<div>
+  <div>
+      <span>Name</span>
+      <span>Description</span>
+  </div>
+
+  <div class="meadows">
+    <% @meadows.each do |meadow| %>
+      <div class="meadow">
+        <span><%= meadow.name %></span>
+        <span><%= meadow.description %></span>
+        <span><%= link_to 'Show', meadow %></span>
+        <span><%= link_to 'Edit', edit_meadow_path(meadow) %></span>
+        <span><%= link_to 'Destroy', meadow, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+      </tr>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'New Meadow', new_meadow_path %>
