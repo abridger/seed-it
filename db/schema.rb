@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_20_130751) do
+ActiveRecord::Schema.define(version: 2019_03_20_164547) do
 
   create_table "meadows", force: :cascade do |t|
     t.text "description"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_03_20_130751) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "remember_digest"
   end
 
 end
