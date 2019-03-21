@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_21_144056) do
+ActiveRecord::Schema.define(version: 2019_03_21_165411) do
 
   create_table "meadows", force: :cascade do |t|
     t.text "description"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2019_03_21_144056) do
     t.string "activation_digest"
     t.boolean "activated"
     t.datetime "activated_at"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
   end
 
 end
