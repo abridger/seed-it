@@ -1,6 +1,6 @@
 class MeadowsController < ApplicationController
   before_action :set_meadow, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:edit, :update, :destroy]
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /meadows
   # GET /meadows.json

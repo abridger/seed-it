@@ -2,6 +2,8 @@
 
 <h1>Users</h1>
 
+<%= will_paginate %>
+
 <div>
   <div>
       <span>Name</span>
@@ -9,16 +11,10 @@
   </div>
 
   <div class="users">
-    <% @users.each do |user| %>
-      <div class="user">
-        <span><%= user.name %></span>
-        <span><%= user.email %></span>
-        <span><%= link_to 'Show', user %></span>
-        <span><%= link_to 'Edit', edit_user_path(user) %></span>
-        <span><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-      </tr>
-    <% end %>
+    <%= render @users %>
   </div>
 </div>
+
+<%= will_paginate %>
 
 <%= link_to 'New User', new_user_path %>
