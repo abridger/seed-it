@@ -1,16 +1,27 @@
+<% provide(:title, @user.name) %>
+
 <p id="notice"><%= notice %></p>
 
 <%= gravatar_for @user %>
 
-<h1>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</h1>
+<div class="header">
+  <h1>
+    <%= @user.name %>
+  </h1>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+</div>
+
+<% if @user.meadows.any? %>
+  <div class="meadows">
+    <h3>Meadows (<%= @user.meadows.count %>)</h3>
+    <%= render @meadows %>
+  </div>
+  <%= will_paginate @meadows %>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -1,11 +1,9 @@
 <div class="meadow">
-  <span><%= meadow.name %></span>
-  <span><%= meadow.description %></span>
+  <span class="name"><%= meadow.name %></span>
+  <span class="description"><%= meadow.description %></span>
+  <span class="timestamp">Created <%= time_ago_in_words(meadow.created_at) %> ago</span>
+  <span class="user">
+    <%= link_to meadow.user.name, meadow.user %>
+  </span>
   <span><%= link_to 'Show', meadow %></span>
-  <% if logged_in? %>
-    <span><%= link_to 'Edit', edit_meadow_path(meadow) %></span>
-  <% end %>
-  <% if logged_in? && current_user.admin? %>
-    <span><%= link_to 'Destroy', meadow, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-  <% end %>
 </tr>

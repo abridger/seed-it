@@ -7,4 +7,5 @@ class CreateMeadows < ActiveRecord::Migration[5.2]
       t.timestamps
     end
   end
+  add_index :meadows, :user_id
 end

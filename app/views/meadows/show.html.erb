@@ -8,7 +8,15 @@
   <%= @meadow.description %>
 </p>
 
+<span class="timestamp">Created <%= time_ago_in_words(@meadow.created_at) %> ago</span>
+<span class="user">
+  <%= link_to @meadow.user.name, @meadow.user %>
+</span>
+
 <% if logged_in? %>
-  <%= link_to 'Edit', edit_meadow_path(@meadow) %> |
+  <span><%= link_to 'Edit', edit_meadow_path(@meadow) %></span>
+<% end %>
+<% if logged_in? && current_user.admin? %>
+  <span><%= link_to 'Destroy', @meadow, method: :delete, data: { confirm: 'Are you sure?' } %></span>
 <% end %>
 <%= link_to 'Back', meadows_path %>

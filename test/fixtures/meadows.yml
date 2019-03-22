@@ -3,11 +3,22 @@
 valid:
   description: A meadow description
   name: A meadow title
+  user: badger
 
 invalid_title:
   description: A meadow description
   name:
+  user: ferret
 
 invalid_description:
   description:
   name: A meadow title
+  user: ferret
+
+<% 30.times do |n| %>
+meadow<%= n %>:
+  name: <%= Faker::Lorem.sentence(2) %>
+  description: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 42.days.ago %>
+  user: badger
+<% end %>

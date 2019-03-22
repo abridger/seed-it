@@ -24,3 +24,10 @@ User.create!(name:                  "Example Badger",
                activated:             true,
                activated_at:          Time.zone.now)
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+  name = Faker::Ancient.primordial
+  description = Faker::Lorem.sentence(5)
+  users.each { |user| user.meadows.create!(name: name, description: description) }
+end

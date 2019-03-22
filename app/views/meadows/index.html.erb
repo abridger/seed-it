@@ -2,6 +2,8 @@
 
 <h1>Meadows</h1>
 
+<%= will_paginate %>
+
 <div>
   <div>
       <span>Name</span>
@@ -12,5 +14,7 @@
     <%= render @meadows %>
   </div>
 </div>
+
+<%= will_paginate %>
 
 <%= link_to 'New Meadow', new_meadow_path %>

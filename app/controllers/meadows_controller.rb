@@ -1,11 +1,12 @@
 class MeadowsController < ApplicationController
   before_action :set_meadow, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update, :destroy]
 
   # GET /meadows
   # GET /meadows.json
   def index
-    @meadows = Meadow.all
+    @meadows = Meadow.all.paginate(page: params[:page])
   end
 
   # GET /meadows/1
@@ -25,7 +26,7 @@ class MeadowsController < ApplicationController
   # POST /meadows
   # POST /meadows.json
   def create
-    @meadow = Meadow.new(meadow_params)
+    @meadow = current_user.meadows.build(meadow_params)
 
     respond_to do |format|
       if @meadow.save
@@ -56,10 +57,8 @@ class MeadowsController < ApplicationController
   # DELETE /meadows/1.json
   def destroy
     @meadow.destroy
-    respond_to do |format|
-      format.html { redirect_to meadows_url, notice: 'Meadow was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:success] = "Meadow deleted"
+    redirect_to request.referrer || meadows_url
   end
 
   private
@@ -71,5 +70,10 @@ class MeadowsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def meadow_params
       params.require(:meadow).permit(:name, :description)
+    end
+
+    def correct_user
+      @meadow = current_user.meadows.find_by(id: params[:id])
+      redirect_to root_url if @meadow.nil?
     end
 end
